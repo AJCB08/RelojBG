@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>RelojBG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@700&display=swap" rel="stylesheet">
+  
+<style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    
+    #clock {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 260px;
+      color: white;
+      font-family: 'MuseoModerno', cursive;
+    }
+    
+     #background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-image: url('https://raw.githubusercontent.com/AJCB08/RelojBG/main/IMG.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <div id="background-image"></div>
+  <div id="clock"></div>
+
+  <script>
+    function updateClock() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      
+
+      var timeString = hours.toString().padStart(2, '0') + ':' +
+        minutes.toString().padStart(2, '0');
+
+      document.getElementById('clock').textContent = timeString;
+    }
+
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
